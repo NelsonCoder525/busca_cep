@@ -41,5 +41,8 @@ logradouro = coluna_container_esquerda.text_input("Digite o Logradouro", key="lo
 botao_pesquisar = coluna_container_esquerda.button("Pesquisar")
 
 if botao_pesquisar:
-    resultado = busca_cep(uf, cidade, logradouro)
-    coluna_meio.table(resultado)
+    try: 
+        resultado = busca_cep(uf, cidade, logradouro)
+        coluna_meio.table(resultado)
+    except:
+        st.error("Ocorreu um erro ao buscar os dados. Verifique os campos e tente novamente.")
